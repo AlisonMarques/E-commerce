@@ -13,13 +13,15 @@ import * as CartActions from '../../store/modules/cart/actions';
 
 import { Container, ProductTable, Total } from './styles';
 
-function Cart({ cart, total, removeFromCart, updateAmount }) {
+function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
+    //Controle de adição (+) de produto na aba carrinho
     function increment(product) {
-        updateAmount(product.id, product.amount + 1);
+        updateAmountRequest(product.id, product.amount + 1);
     }
 
+    //Controle de retirar (-) de produto na aba carrinho
     function decrement(product) {
-        updateAmount(product.id, product.amount - 1);
+        updateAmountRequest(product.id, product.amount - 1);
     }
     return (
         <Container>
